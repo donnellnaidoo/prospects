@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="header.css">
+    <link rel="stylesheet" href="styles.css">
+    <link
+    href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css"
+    rel="stylesheet"
+  />
+</head>
+
+
+<body>
+    <header>
+        <div class="header">
+            <h2>Prospects.</h2>
+            
+            <div class="nav-links" id="navLinks">
+                <nav>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Help</a></li>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Our Mission</a></li>
+                        <li><a href="#">Our Vision</a></li>
+                    </ul>
+                </nav>
+            </div>
+        
+            <i class="fa fa-user login-btn" aria-hidden="true" onclick="showLogin()"></i>
+        </div>
+    </header>
+
+    <div class="login" id="login">
+        <form action="" class="login__form">
+           <h2 class="login__title">Log In</h2>
+           <p>or sign in with</p>
+           
+           <div class="login__group">
+              <div class="social-icons">
+                <a href="#" class="icons" id="google-login"
+                  ><i class="fa-brands fa-google-plus-g" ></i
+                ></a>
+                <a href="#" class="icons"
+                  ><i class="fa-brands fa-facebook-f"></i
+                ></a>
+                <a href="#" class="icons"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#" class="icons"><i class="fa-brands fa-twitter"></i></a>
+              </div>
+              <div>
+                 <label for="email" class="login__label">Email</label>
+                 <input type="email" placeholder="Email" id="email" class="login__input">
+              </div>
+              
+              <div>
+                 <label for="password" class="login__label">Password</label>
+                 <input type="password" placeholder="Password" id="password" class="login__input">
+              </div>
+           </div>
+  
+           <div>
+              <p class="login__signup">
+                 Dont have an account? <a href="#" onclick="dontHaveAnAccount()">Sign up</a>
+              </p>
+  
+              <a href="#" class="login__forgot">
+                 Forgot Password
+              </a>
+  
+              <button type="submit" class="login__button"><a href="feed/feed.html">Log In</a></button>
+           </div>
+        </form>
+        <i class="ri-close-line login__close" id="login-close" onclick="hideLogin()"></i>
+     </div>
+  
+     <!-- Register -->
+     <div class="login registration" id="registration">
+      <form action="/sign_up" class="login__form" method="post">
+         <h2 class="login__title">Register</h2>
+         <p>or register with</p>
+         
+         <div class="login__group">
+            <div class="social-icons">
+              <a href="#" class="icons" id="google-register"
+                ><i class="fa-brands fa-google-plus-g" ></i
+              ></a>
+              <a href="#" class="icons"
+                ><i class="fa-brands fa-facebook-f"></i
+              ></a>
+              <a href="#" class="icons"><i class="fa-brands fa-instagram"></i></a>
+              <a href="#" class="icons"><i class="fa-brands fa-twitter"></i></a>
+            </div>
+  
+            <div>
+              <label for="name" class="login__label">Full Name</label>
+              <input type="text" placeholder="Name" id="name" class="login__input">
+           </div>
+            <div>
+               <label for="email" class="login__label">Email</label>
+               <input type="email" placeholder="Email" id="email" class="login__input">
+            </div>
+            
+            
+            <div class="acc-typeContainer">
+              <label for="" class="login__label">Account Type</label>
+              <div class="acc-type">
+                <div>
+                  <input type="radio" name="accountType" id="personal">
+                  <label for="personal">Scout</label>
+                </div>
+                <div>
+                  <input type="radio" name="accountType" id="business">
+                  <label for="business">Player</label>
+                </div>
+                <div>
+                  <input type="radio" name="accountType" id="other">
+                  <label for="other">Team</label>
+                </div>
+    
+              </div>
+            </div>
+  
+            <div>
+               <label for="password" class="login__label">Password</label>
+               <input type="password" placeholder="Password" id="password" class="login__input">
+            </div>
+            <div>
+              <label for="password" class="login__label">Confirm</label>
+              <input type="password" placeholder="Confirm Password" id="password" class="login__input">
+           </div>
+         </div>
+  
+         <div>
+            <p class="login__signup">
+               Already have an account? <a href="#" onclick="alreadyHaveAnAccount()">Log In</a>
+            </p>
+  
+            <button type="submit" class="login__button">Sign Up</button>
+         </div>
+      </form>
+      <i class="ri-close-line login__close" id="registration-close" onclick="hideRegistration()"></i>
+   </div>
+
+
+
+    <!-- CURSOR -->
+    <div class="cursor"></div>
+
+    <div class="section1">
+        <div class="one container">
+            <div class="text-content">
+                <div class="head">
+                    <h1>Revolutionizing</h1>
+                    <h1>football talent</h1>
+
+                    <p>
+                        We create and innovate unique opportunities<br>
+                        for tomorrow's football stars.
+                    </p>
+                    
+                </div>
+            </div>
+        </div>
+
+        <video src="./videos/bg-1.mp4" muted autoplay loop></video>
+    </div>
+
+    <div class="section2">
+        <video src="./videos/bg-2.mp4" muted loop autoplay></video>
+    </div>
+
+    <div class="section3">
+        <div class="three container">
+            <div class="left">
+                <img class="ball" src="videos/ball.webp" alt="">
+            </div>
+
+            <div class="right">
+                <h5>Unlock Your Potential</h5>
+
+                <h1>We harness our collective expertise<br>
+                    to transform your football dreams<br>
+                    into remarkable realities.
+                </h1>
+                
+                <h1>Explore our diverse skill set,<br>
+                    each contributing a unique aspect<br>
+                    to your footballing vision.
+                </h1>
+            </div>
+        </div>
+    </div>
+
+    <div class="section4">
+        <div class="four">
+            <div class="services">
+                <h5>Services</h5>
+            </div>
+
+            <div class="moving-text">
+                <div class="text">
+                    <div class="first">
+                        <h1>Where dreams meet opportunity</h1>
+                        <video src="./videos/section4.webm" muted autoplay loop></video>
+                    </div>
+
+                    <div class="first">
+                        <h1>Where dreams meet opportunity</h1>
+                        <video src="./videos/section4.webm" muted autoplay loop></video>
+                    </div>
+
+                    <div class="first">
+                        <h1>Where dreams meet opportunity</h1>
+                        <video src="./videos/section4.webm" muted autoplay loop></video>
+                    </div>
+
+                    <div class="first">
+                        <h1>Where dreams meet opportunity</h1>
+                        <video src="./videos/section4.webm" muted autoplay loop></video>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- =========projects====== -->
+
+
+            <div class="projects">
+                <div class="bg">
+                    <video src="./videos/training.mp4" autoplay muted loop class="id-1"></video>
+                    <video src="./videos/project 2.webm" autoplay muted loop class="id-2"></video>
+                    <video src="./videos/connect.mp4" autoplay muted loop class="id-3"></video>
+                </div>
+
+                <div class="first-project container">
+                    <div class="first" data-id="1">
+                        <h1>Virtual Training</h1>
+
+                        <div class="about">
+                            <h4>Start Training</h4>
+                        </div>
+                    </div>
+
+                    <div class="first" data-id="2">
+                        <h1>Scout Connection</h1>
+
+                        <div class="about">
+                            <h4>Start Connecting</h4>
+                        </div>
+                    </div>
+                    <div class="first" data-id="3">
+                        <h1>Connect With Other Players</h1>
+
+                        <div class="about">
+                            <h4>Network</h4>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="section5">
+        <div class="five container">
+            <div class="left">
+                <h5>Our Values</h5>
+                <div class="one">
+                    <h1>Human Values and Integrity<br>
+                        are at the Heart of Our Culture.</h1>
+                </div>
+                
+                <div class="one">
+                    <h1>Whether players, scouts, or clubs,<br>
+                        we all strive for excellence in<br>
+                        fostering talent and achieving<br>
+                        sporting greatness.</h1>
+                </div>
+            </div>
+
+            <div class="right">
+                <img class="ball2" src="videos/ball.webp" alt="">
+            </div>
+        </div>
+    </div>
+
+    <div class="section6">
+        <div class="six">
+            <div class="left">
+                <div class="move">
+                    <h1>Where dreams meet opportunity.</h1>
+                </div>
+
+                <div class="move">
+                    <h1>Where dreams meet opportunity.</h1
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section7">
+        <div class="seven">
+            <h4>Follow Us</h4>
+
+            <div class="follow">
+                <div class="box">
+
+                    <h1>Instagram</h1>
+
+                    <div class="back">
+                        <div class="insta">
+                            <h3>* Instagram * <span>@prospects</span></h3>
+                            <h3>* Instagram * <span>@prospects</span></h3>
+                            <h3>* Instagram * <span>@prospects</span></h3>
+                            <h3>* Instagram * <span>@prospects</span></h3>
+                            <h3>* Instagram * <span>@prospects</span></h3>
+                            <h3>* Instagram * <span>@prospects</span></h3>
+                            <h3>* Instagram * <span>@prospects</span></h3>
+                            <h3>* Instagram * <span>@prospects</span></h3>
+                            <h3>* Instagram * <span>@prospects</span></h3>
+                            <h3>* Instagram * <span>@prospects</span></h3>
+                            <h3>* Instagram * <span>@prospects</span></h3>
+                            <h3>* Instagram * <span>@prospects</span></h3>
+                            <h3>* Instagram * <span>@prospects</span></h3>
+                            <h3>* Instagram * <span>@prospects</span></h3>
+                            <h3>* Instagram * <span>@prospects</span></h3>
+                            <h3>* Instagram * <span>@prospects</span></h3>
+                            <h3>* Instagram * <span>@prospects</span></h3>
+                            <h3>* Instagram * <span>@prospects</span></h3>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="box">
+
+                    <h1>Facebook</h1>
+                    <div class="back">
+                        <div class="insta">
+                            <h3>* Facebook * <span>@prospects</span></h3>
+                            <h3>* Facebook * <span>@prospects</span></h3>
+                            <h3>* Facebook * <span>@prospects</span></h3>
+                            <h3>* Facebook * <span>@prospects</span></h3>
+                            <h3>* Facebook * <span>@prospects</span></h3>
+                            <h3>* Facebook * <span>@prospects</span></h3>
+                            <h3>* Facebook * <span>@prospects</span></h3>
+                            <h3>* Facebook * <span>@prospects</span></h3>
+                            <h3>* Facebook * <span>@prospects</span></h3>
+                            <h3>* Facebook * <span>@prospects</span></h3>
+                            <h3>* Facebook * <span>@prospects</span></h3>
+                            <h3>* Facebook * <span>@prospects</span></h3>
+                            <h3>* Facebook * <span>@prospects</span></h3>
+                            <h3>* Facebook * <span>@prospects</span></h3>
+                            <h3>* Facebook * <span>@prospects</span></h3>
+                            <h3>* Facebook * <span>@prospects</span></h3>
+                            <h3>* Facebook * <span>@prospects</span></h3>
+                            <h3>* Facebook * <span>@prospects</span></h3>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="box">
+
+                    <h1>X/Twitter</h1>
+
+                    <div class="back">
+                        <div class="insta">
+                            <h3>* X/Twitter * <span>@prospects</span></h3>
+                            <h3>* X/Twitter * <span>@prospects</span></h3>
+                            <h3>* X/Twitter * <span>@prospects</span></h3>
+                            <h3>* X/Twitter * <span>@prospects</span></h3>
+                            <h3>* X/Twitter * <span>@prospects</span></h3>
+                            <h3>* X/Twitter * <span>@prospects</span></h3>
+                            <h3>* X/Twitter * <span>@prospects</span></h3>
+                            <h3>* X/Twitter * <span>@prospects</span></h3>
+                            <h3>* X/Twitter * <span>@prospects</span></h3>
+                            <h3>* X/Twitter * <span>@prospects</span></h3>
+                            <h3>* X/Twitter * <span>@prospects</span></h3>
+                            <h3>* X/Twitter * <span>@prospects</span></h3>
+                            <h3>* X/Twitter * <span>@prospects</span></h3>
+                            <h3>* X/Twitter * <span>@prospects</span></h3>
+                            <h3>* X/Twitter * <span>@prospects</span></h3>
+                            <h3>* X/Twitter * <span>@prospects</span></h3>
+                            <h3>* X/Twitter * <span>@prospects</span></h3>
+                            <h3>* X/Twitter * <span>@prospects</span></h3>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="box">
+
+                    <h1>Dribble</h1>
+
+                    <div class="back">
+                        <div class="insta">
+                            <h3>* Dribble * <span>@prospects</span></h3>
+                            <h3>* Dribble * <span>@prospects</span></h3>
+                            <h3>* Dribble * <span>@prospects</span></h3>
+                            <h3>* Dribble * <span>@prospects</span></h3>
+                            <h3>* Dribble * <span>@prospects</span></h3>
+                            <h3>* Dribble * <span>@prospects</span></h3>
+                            <h3>* Dribble * <span>@prospects</span></h3>
+                            <h3>* Dribble * <span>@prospects</span></h3>
+                            <h3>* Dribble * <span>@prospects</span></h3>
+                            <h3>* Dribble * <span>@prospects</span></h3>
+                            <h3>* Dribble * <span>@prospects</span></h3>
+                            <h3>* Dribble * <span>@prospects</span></h3>
+                            <h3>* Dribble * <span>@prospects</span></h3>
+                            <h3>* Dribble * <span>@prospects</span></h3>
+                            <h3>* Dribble * <span>@prospects</span></h3>
+                            <h3>* Dribble * <span>@prospects</span></h3>
+                            <h3>* Dribble * <span>@prospects</span></h3>
+                            <h3>* Dribble * <span>@prospects</span></h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="main.js"></script>
+    <script src="header.js"></script>
+    <!-- <script src="index.js"></script> -->
+</body>
+
+</html>
