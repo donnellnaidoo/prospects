@@ -220,15 +220,12 @@ app.post('/login', async (req, res) => {
         }
 
         // Password is valid, redirect to dashboard with user's name
-        res.redirect(`/feed/feed.html?name=${encodeURIComponent(user.name)}`);
+        res.redirect(`feed/feed.html?name=${encodeURIComponent(user.name)}`);
+
     } catch (error) {
         console.error('Error during login:', error);
         res.status(500).json({ message: 'Internal server error' });
     }
-});
-
-app.get('/feed', (req, res) => {
-    res.render('feed', { userName: req.query.name });
 });
 
 
