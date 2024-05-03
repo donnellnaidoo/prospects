@@ -128,14 +128,16 @@
 //     return res.redirect('index.html')
 // }).listen(3000);
 
-
-
-
 // console.log("Listening on port 3000")
+
+
+
+/////////////////////
 const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const passwordValidator = require('password-validator');
+
 
 const app = express();
 const PORT = 3000;
@@ -172,36 +174,47 @@ schema
   .has().not().spaces();                          // Should not have spaces
 
 // Sign up route
-app.post("/sign_up", (req, res) => {
+const multer = require('multer');
+const upload = multer({ dest: 'uploads/' }); // Define the destination folder for uploaded files
+
+app.post("/sign_up", upload.single('profile_picture'), (req, res) => {
     const { name, email, accountType, password } = req.body;
 
     // Check if any field is missing
     if (!name || !email || !accountType || !password) {
-        return res.status(400).send("All fields are required.");
+        return res.send('<script>alert("All fields are required."); window.history.back();</script>');
     }
 
     // Check password strength
     if (!schema.validate(password)) {
-        return res.status(400).send("Password is too weak. It must contain at least 8 characters including uppercase, lowercase, digits, and no spaces.");
+        return res.send('<script>alert("Password is too weak. It must contain at least 8 characters including uppercase, lowercase, digits, and no spaces."); window.history.back();</script>');
     }
+
+    // Retrieve the path of the uploaded file
+    const profilePicturePath = req.file ? req.file.filename : null; // Use req.file.filename to get the filename
 
     const data = {
         name,
         email,
         accountType,
-        password
+        password,
+        profilePicturePath // Add profile picture path to data
     };
 
-    User.create(data, (err, user) => {
-        if (err) {
+    console.log("Data before creating user:", data);
+
+    User.create(data)
+        .then(user => {
+            console.log("Record inserted successfully");
+            console.log("User:", user);
+            res.redirect(`/feed/feed.html?name=${encodeURIComponent(name)}&profilePicturePath=${encodeURIComponent(profilePicturePath)}`);
+        })
+        .catch(err => {
             console.error("Error inserting record:", err);
-            return res.status(500).send("Error inserting record");
-        }
-        console.log("Record inserted successfully");
-        // Redirect to dashboard with user's name
-        res.redirect(`/feed/feed.html?name=${encodeURIComponent(name)}`);
-    });
+            return res.send('<script>alert("Error inserting record"); window.history.back();</script>');
+        });
 });
+
 
 // Login route
 app.post('/login', async (req, res) => {
@@ -211,20 +224,20 @@ app.post('/login', async (req, res) => {
         const user = await User.findOne({ email });
 
         if (!user) {
-            return res.status(404).json({ message: 'User not found' });
+            return res.send('<script>alert("User not found"); window.history.back();</script>');
         }
 
-        // Compare the passwords directly
+        // Compare passwords directly (assuming plaintext passwords for demonstration)
         if (user.password !== password) {
-            return res.status(401).json({ message: 'Invalid password' });
+            return res.send('<script>alert("Invalid password"); window.history.back();</script>');
         }
 
-        // Password is valid, redirect to dashboard with user's name
-        res.redirect(`feed/feed.html?name=${encodeURIComponent(user.name)}`);
+        // Password is valid, redirect to dashboard with user's name and profile picture path
+        res.redirect(`/feed/feed.html?name=${encodeURIComponent(user.name)}&profilePicturePath=${encodeURIComponent(user.profilePicturePath)}`);
 
     } catch (error) {
         console.error('Error during login:', error);
-        res.status(500).json({ message: 'Internal server error' });
+        return res.send('<script>alert("Internal server error"); window.history.back();</script>');
     }
 });
 

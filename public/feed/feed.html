@@ -29,12 +29,15 @@
         <div class="left">
           <a class="profile">
             <div class="profile-picture">
-              <i class="uil uil-user"></i>
+              <!-- <i class="uil uil-user"></i> -->
+              <img id="profilePicture" src="" alt="Profile Picture">
             </div>
             <div class="handle">
               <h4><%= userName %></h4>
-              <p class="text-muted">@<%= userName %></p>
-            </div>
+              <p class="text-muted" id="username"></p>
+        
+          </div>
+          
             
             
           </a>
@@ -181,5 +184,25 @@
     </div>
     <script src="feed.js"></script>
     <script src="darkmode.js"></script>
+    <script src="../../index.js"></script>
+    
+    <script>
+      // Retrieve query parameters
+      const urlParams = new URLSearchParams(window.location.search);
+      const name = urlParams.get('name');
+      const profilePicturePath = urlParams.get('profilePicturePath');
+
+      // Set username
+      document.getElementById('username').textContent = name;
+
+      // Set profile picture src
+      const profilePictureElement = document.getElementById('profilePicture');
+      if (profilePicturePath) {
+          profilePictureElement.src = `/uploads/${profilePicturePath}`;
+      } else {
+          // If no profile picture path is provided, set a default image or placeholder
+          profilePictureElement.src = '/path/to/default-image.jpg';
+      }
+  </script>
   </body>
 </html>
